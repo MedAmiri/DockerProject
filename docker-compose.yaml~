@@ -1,0 +1,11 @@
+web:
+ build: .
+ ports:
+  - "8001:5000"
+ links:
+  - redis
+ngnix:
+ build: .
+ 
+DB:
+ image: dduportal/arm-redis

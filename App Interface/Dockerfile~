@@ -1,0 +1,4 @@
+FROM nginx
+MAINTAINER Amiri
+ADD ./index.html /usr/share/nginx/html/index.html
+ADD ./ /usr/share/nginx/html/
