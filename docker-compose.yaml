@@ -1,10 +1,10 @@
-web:
- build: .
+geoserver:
+ build: ./Geoserver
  ports:
-  - "8001:5000"
+  - "8080:80"
  links:
-  - redis
-ngnix:
- build: .
-DB:
- image: dduportal/arm-redis
+  - "db"
+db:
+ image: postgres:9.4
+ volumes:
+  - ./data:/var/lib/postgresql/data

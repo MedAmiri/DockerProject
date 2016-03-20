@@ -1,48 +1,35 @@
 <!DOCTYPE html>
 <html>
-          <head>
-            <title>Cesium et WMTS</title>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-            <style type="text/css">
-            @import url(Cesium/Widgets/widgets.css);
-            div#viewerDiv {
-                width:100%;
-                height:600px;
-                background-color:white;
-                background-position:center center;
-                background-repeat:no-repeat;
-            }
-            </style>
-            <script type="text/javascript" src="Cesium/Cesium.js"><!-- --></script>
-          </head>
-          <body>
-            <div id="viewerDiv"></div>
-            <script type="text/javascript">
+  <head>
+    <title>Tiled ArcGIS MapServer</title>
+    <link rel="stylesheet" href="../v3.14.2/css/ol.css" type="text/css">
+    <script src="../v3.14.2/build/ol.js"></script>
+  </head>
+  <body>
+    <div id="map" class="map"></div>
+    <script>
+      var url = 'http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/' +
+          'Specialty/ESRI_StateCityHighway_USA/MapServer';
 
-    // setting initial view center
-    var west = -10.0;
-    var south = 38.0;
-    var east = 10.0;
-    var north = 53.0;
-    Cesium.Camera.DEFAULT_VIEW_RECTANGLE = Cesium.Rectangle.fromDegrees(west, south, east, north);
-
-    var viewer = new Cesium.Viewer('viewerDiv', {
-                   imageryProvider : new Cesium.WebMapTileServiceImageryProvider({
-                       url : 'http://wxs.ign.fr/f4refheinrq07zjabas0ovq9/geoportail/wmts',
-                       layer : 'GEOGRAPHICALGRIDSYSTEMS.MAPS',
-                       style : 'normal',
-                       format : 'image/jpeg',
-                       tileMatrixSetID : 'PM',
-                       // tilingScheme: new Cesium.WebMercatorTilingScheme(),
-                       // tileMatrixLabels: ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19"],
-                       credit : new Cesium.Credit("IGN", "http://wxs.ign.fr/static/logos/IGN/IGN.gif", "http://www.ign.fr/")
-                   }),
-                   baseLayerPicker : false,
-                   timeline : false,
-                   geocoder : false,
-                   scene3DOnly: true
-                 });
-
-            </script>
-          </body>
-        </html>
+      var layers = [
+        new ol.layer.Tile({
+          source: new ol.source.MapQuest({layer: 'sat'})
+        }),
+        new ol.layer.Tile({
+          extent: [-13884991, 2870341, -7455066, 6338219],
+          source: new ol.source.TileArcGISRest({
+            url: url
+          })
+        })
+      ];
+      var map = new ol.Map({
+        layers: layers,
+        target: 'map',
+        view: new ol.View({
+          center: [-10997148, 4569099],
+          zoom: 4
+        })
+      });
+    </script>
+  </body>
+</html>
