@@ -4,25 +4,18 @@
 
 
 ## Geoserver 
-dockerfile à revoir 
-volume
-
+dockerfile pour fabriquer l'image fini.
+login : admin 
+mot de passe : geoserver
 
 ## NGNIX 
-dockerfile n'est pas fini 
-connexion avec geoserver 
-affichage d'une page web qui contient les données 
+partie à revoir.
 
 ## Postgres
-teste de replication de la base de données  avec postgis
-moyen pour alimenter la base de données 
-connexion avec geoserver
-réplication
-clean up postgis
-configuration de postgis 
-
+- dockerfile pour fabriquer l'image de postgis.
+- définir le maitre et l'esclave pour faire la replication dans le cas d'un mise à jour de la base de données (pas terminer)
 
 ## Docker compose 
-fichier yaml 
-connexion entre les différentes composantes 
+à finir 
+
 

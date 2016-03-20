@@ -14,6 +14,7 @@ connexion avec geoserver
 affichage d'une page web qui contient les données 
 
 ## Postgres
+teste de replication de la base de données  avec postgis
 moyen pour alimenter la base de données 
 connexion avec geoserver
 réplication
