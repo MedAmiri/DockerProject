@@ -1,0 +1,18 @@
+pgpool:
+ build: ./Pgpool
+ container_name: pgpool
+ ports:
+  - "9999:9999"
+ links:
+  - master
+  - slave
+master:
+ image: kartoza/postgis
+ container_name: master
+ ports:
+  - "5432:5432"
+slave:
+ build: ./Postgis
+ container_name: slave
+ ports:
+  - "5433:5432"
