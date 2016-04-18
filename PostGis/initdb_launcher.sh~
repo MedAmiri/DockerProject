@@ -1,0 +1,2 @@
+#!/bin/sh
+docker exec dockergisproject_pgdb_1 /home/initdb.sh

@@ -1,0 +1,10 @@
+geoserver:
+ build: ./Geoserver
+ ports:
+  - "8080:8080"
+ links:
+  - "pgdb"
+pgdb:
+ build: ./PostGis
+ ports:
+  - "5432:5432"
