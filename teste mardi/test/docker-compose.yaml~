@@ -1,0 +1,19 @@
+pgpool:
+ build: ./pgpool
+ container_name: Pgpool
+ ports:
+  - "9999:9999"
+ links:
+  - db1
+  - server
+  - db2
+server:
+ build: ./geoserver
+ container_name: geoserver
+ ports:
+  - "8080:8080"
+db2:
+ image: postgres:9.3
+ container_name: postgis2
+ ports:
+  - "5433:5432"
