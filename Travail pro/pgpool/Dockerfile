@@ -1,6 +1,6 @@
 FROM ubuntu
 MAINTAINER <.....>
-RUN echo 'Acquire::http::proxy "http://10.0.4.2:3128/";' >> /etc/apt/apt.conf.d/proxy.conf
+#RUN echo 'Acquire::http::proxy "http://10.0.4.2:3128/";' >> /etc/apt/apt.conf.d/proxy.conf
 RUN  apt-get update \
   && apt-get install -y wget \
   postgresql \
@@ -17,7 +17,8 @@ RUN apt-get install -y postgresql-9.3-postgis-2.1-scripts \
         
 
 
-RUN wget http://www.pgpool.net/download.php?f=pgpool-II-3.3.3.tar.gz -e http_proxy=10.0.4.2:3128
+RUN wget http://www.pgpool.net/download.php?f=pgpool-II-3.3.3.tar.gz 
+#-e http_proxy=10.0.4.2:3128
 RUN tar xvfz download.php?f=pgpool-II-3.3.3.tar.gz
 
 RUN apt-get update && apt-get install -y \
@@ -31,6 +32,11 @@ WORKDIR /pgpool-II-3.3.3
 RUN ./configure
 RUN make
 RUN make install
+
+WORKDIR /pgpool-II-3.3.3/sql
+RUN make
+RUN make install
+RUN ldconfig
 
 WORKDIR /
 
