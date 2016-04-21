@@ -4,13 +4,21 @@ pgpool:
  ports:
   - "9999:9999"
  links:
-  - db
+  - db1
+  - db2
   - server
-db:
+db1:
  build: ./postgis
- container_name: postgis
+ container_name: postgis1
  ports:
-  - "5432:5432"
+  - "5433:5432"
+ volumes:
+  - ~/postgres_data:/var/lib/postgresql
+db2:
+ build: ./postgis
+ container_name: postgis2
+ ports:
+  - "5434:5432"
  volumes:
   - ~/postgres_data:/var/lib/postgresql
 server:

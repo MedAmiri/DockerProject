@@ -1,8 +1,8 @@
 FROM postgres:9.4
 
-MAINTAINER amiri
+MAINTAINER <.....>
 
-#RUN echo 'Acquire::http::proxy "http://10.0.4.2:3128/";' >> /etc/apt/apt.conf.d/proxy.conf
+RUN echo 'Acquire::http::proxy "http://10.0.4.2:3128/";' >> /etc/apt/apt.conf.d/proxy.conf
 
 RUN apt-get update && apt-get upgrade -y
 
