@@ -3,10 +3,18 @@ MAINTAINER <.....>
 RUN echo 'Acquire::http::proxy "http://10.0.4.2:3128/";' >> /etc/apt/apt.conf.d/proxy.conf
 RUN  apt-get update \
   && apt-get install -y wget \
-  postgres-client \
-  postgresql-9.4
+  postgresql \
+  postgresql-9.3 \
+  postgresql-client-9.3 \
+  postgresql-contrib-9.3 \
+  postgresql-server-dev-9.3 \
+  postgresql-pltcl-9.3 \
+  postgresql-common
   
-  
+RUN apt-get install -y postgresql-9.3-postgis-2.1-scripts \
+        postgis \
+        postgresql-9.3-postgis-2.1 
+        
 
 
 RUN wget http://www.pgpool.net/download.php?f=pgpool-II-3.3.3.tar.gz -e http_proxy=10.0.4.2:3128
@@ -17,7 +25,7 @@ RUN apt-get update && apt-get install -y \
     make \ 
     libpq-dev \
     gcc \
-    postgis postgresql-9.4-postgis-scripts
+    postgis postgresql-9.3-postgis-scripts
 
 WORKDIR /pgpool-II-3.3.3
 RUN ./configure
@@ -32,8 +40,8 @@ ADD ./pgpool.conf /usr/local/etc/pgpool.conf
 RUN chmod 666 /usr/local/etc/pgpool.conf
 ADD ./pool_hba.conf /usr/local/etc/pool_hba.conf
 
-ADD ./postgresql.conf /etc/postgresql/9.4/main/postgresql.conf
-ADD ./pg_hba.conf /etc/postgresql/9.4/main/pg_hba.conf
+ADD ./postgresql.conf /etc/postgresql/9.3/main/postgresql.conf
+ADD ./pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf
 
 ADD ./initdb.sh /home/
 
