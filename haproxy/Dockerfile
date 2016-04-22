@@ -9,5 +9,5 @@ sed -i "s/ENABLED=0/ENABLED=1/g" /etc/init.d/haproxy
 ADD haproxy.cfg /etc/haproxy/haproxy.cfg
 ADD start.sh /usr/bin/start.sh
 RUN chmod 755 /usr/bin/start.sh
-EXPOSE 80
 CMD ["start.sh"]
+EXPOSE 80
