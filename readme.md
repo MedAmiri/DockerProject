@@ -44,3 +44,7 @@ EOS
 
  volumes:
   - ./data:/var/lib/postgresql/data
+
+
+
+teste merge 
