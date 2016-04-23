@@ -1,0 +1,15 @@
+server:
+ build: ./geoserver
+ container_name: geoserver-x1
+ ports:
+  - "8080:8080"
+db:
+ build: ./docker
+ ports:
+  - "5430:5432"
+ environment:
+  REPLICATION_USER: docker
+  REPLICATION_PASSWORD: docker
+  REPLICATION_SLOT: some_slot
+ volumes:
+  - ~/postgres_data:/var/lib/postgresql
