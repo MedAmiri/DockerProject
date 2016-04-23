@@ -1,0 +1,17 @@
+geoserver:
+ build: ./Geoserver
+ ports:
+  - "8090:8080"
+ links:
+  - "db1"
+  - "db2"
+db1:
+ build: PostGis
+ ports:
+  - "5434:5432"
+  - "9990:9999"
+db2:
+ build: PostGis
+ ports:
+  - "5435:5432"
+  - "9991:9999"
