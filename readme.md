@@ -44,7 +44,14 @@ EOS
 
  volumes:
   - ./data:/var/lib/postgresql/data
+<<<<<<< HEAD
+
+
+
+teste merge 
+=======
   - 
  http://www.pgpool.net/pgpool-web/contrib_docs/watchdog_master_slave_3.3/en.html
  http://www.synbioz.com/blog/postgresql_replication_pgpool2
  http://connect.ed-diamond.com/GNU-Linux-Magazine/GLMFHS-044/pgPool-II-la-replication-par-duplication-des-requetes
+>>>>>>> cluster
