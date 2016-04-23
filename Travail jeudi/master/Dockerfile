@@ -1,4 +1,3 @@
-# Extends https://github.com/docker-library/postgres/blob/c9d9f4c1a0d33a161fefda666f041ef0dc4dc9f8/9.4/Dockerfile
 FROM postgres:9.4 
 
 RUN apt-get update
@@ -40,6 +39,7 @@ ENV PCP_PASS docker
 ADD ./pgpool/pgmgt.conf.php /var/www/conf/
 ADD ./pgpool/pool_hba.conf /usr/local/etc/
 ADD ./pgpool/setup.sh /var/www/
+
 WORKDIR /var/www/
 RUN chmod -R 777 setup.sh
 RUN sh ./setup.sh

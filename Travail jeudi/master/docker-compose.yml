@@ -4,12 +4,12 @@ server:
  ports:
   - "8080:8080"
 db:
- build: ../../docker
+ build: .
  ports:
   - "5430:5432"
  environment:
-  REPLICATION_USER: replicator
-  REPLICATION_PASSWORD: myamazingpasswurd
+  REPLICATION_USER: docker
+  REPLICATION_PASSWORD: docker
   REPLICATION_SLOT: some_slot
  volumes:
   - ~/postgres_data:/var/lib/postgresql

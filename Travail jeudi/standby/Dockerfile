@@ -40,6 +40,7 @@ ENV PCP_PASS docker
 ADD ./pgpool/pgmgt.conf.php /var/www/conf/
 ADD ./pgpool/pool_hba.conf /usr/local/etc/
 ADD ./pgpool/setup.sh /var/www/
+
 WORKDIR /var/www/
 RUN chmod -R 777 setup.sh
 RUN sh ./setup.sh
@@ -59,6 +60,5 @@ RUN chmod +x /replication/stream_from_master.sh
 ENV REPLICATION_USER replicator
 ENV REPLICATION_PASSWORD replicator
 
-EXPOSE 9999
 ENTRYPOINT ["/bin/sh", "-c"]
 CMD ["pgpool && while true; do sleep 1000; done"]
