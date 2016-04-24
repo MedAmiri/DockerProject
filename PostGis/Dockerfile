@@ -10,16 +10,9 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y postgis postgresql-9.4-postgis-scripts postgresql-9.4-postgis-2.2 wget
 RUN apt-get clean && apt-get autoremove
 
-## starting the postgres service 
-ADD ./pg_hba.conf /var/lib/postgresql/data/pg_hba.conf
-ADD ./initdb.sh /home/
-RUN chmod -R 777 /home
-
-
 WORKDIR /home
 RUN wget http://www.pgpool.net/download.php?f=pgpool-II-3.4.0.tar.gz -e http_proxy=10.0.4.2:3128
 RUN tar xvfz download.php?f=pgpool-II-3.4.0.tar.gz
-
 RUN apt-get install -y libpq-dev postgresql-server-dev-9.4 build-essential
 WORKDIR /home/pgpool-II-3.4.0
 RUN ./configure
@@ -35,8 +28,11 @@ RUN ldconfig
 
 WORKDIR /
 
+
+##Postgres's configuation
+#ADD ./pg_hba.conf /var/lib/postgresql/data/pg_hba.conf
+ADD ./initdb.sh /home/
+RUN chmod -R 777 /home
+
 EXPOSE 5432
 EXPOSE 9999
-
-ENTRYPOINT ["/bin/sh", "-c"]
-CMD ["pgpool && while true; do sleep 1000; done"]
