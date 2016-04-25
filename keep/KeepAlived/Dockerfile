@@ -1,4 +1,4 @@
-FROM nginx
+FROM ubuntu
 
 MAINTAINER <groupe Amiri>
 #ENV http_proxy http://10.0.4.2:3128
