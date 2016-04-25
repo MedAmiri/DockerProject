@@ -30,15 +30,15 @@ Création d'un SIG de type cloud résilient qui répondera aux deux points suiva
 
 ## Architecture 
  
- ### Architecture matérielle 
+### Architecture matérielle 
 
 ![Architecture Physique](https://github.com/MedAmiri/Docker_GiS_Project/blob/master/Architecture/physiq.png?raw=tru "Architecture physique")
 
- ### Architecture logicielle
+### Architecture logicielle
 
 ![Architecture Logicielle](https://github.com/MedAmiri/Docker_GiS_Project/blob/master/Architecture/logiciel.png?raw=tru "Architecture logicielle")
 
- ### Sous la loupe ... Swarm reigne !!
+### Sous la loupe ... Swarm reigne !!
 
 ![Architecture Effective](https://github.com/MedAmiri/Docker_GiS_Project/blob/master/Architecture/effective.png?raw=tru "Architecture effective")
 
