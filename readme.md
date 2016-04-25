@@ -1,4 +1,4 @@
-# Platforme de publication de données Géographiques
+# Plate-forme de publication de données Géographiques
 
 ## Objectif du projet
 
