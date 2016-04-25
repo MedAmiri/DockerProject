@@ -1,0 +1,28 @@
+geoserver1:
+ build: ./Geoserver
+ ports:
+  - "8090:8080"
+ links:
+  - "db1"
+  - "db2"
+geoserver2:
+ build: ./Geoserver
+ ports:
+  - "8070:8080"
+ links:
+  - "db1"
+  - "db2"
+db1:
+ build: PostGis1
+ ports:
+  - "5434:5432"
+  - "9990:9999"
+ volumes:
+  - ~/postgres_data:/home/data
+db2:
+ build: PostGis2
+ ports:
+  - "5435:5432"
+  - "9991:9999"
+ volumes:
+  - ~/postgres_data:/home/data
