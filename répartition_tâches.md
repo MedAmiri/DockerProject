@@ -1,7 +1,7 @@
 # Compte rendu 
 ## tâches initialisées par les membres du groupe:
 
- ### Mohammed AMIRI:
+### Mohammed AMIRI:
   * Geoserver 
   * Postgres et Postgis
   * PgPool
@@ -9,13 +9,13 @@
   * Consul
   * Configuration cluster
 
- ### Hatim LAMGHARI:
+### Hatim LAMGHARI:
   * Geoserver 
   * HAproxy
   * KeepAlived
   * Diagrammes
 
- ### Romain MILVILLE:
+### Romain MILVILLE:
   * Postgres et Postgis
   * Swarm 
   * Consul 
