@@ -1,13 +1,13 @@
 FROM ubuntu
 
 MAINTAINER <groupe Amiri>
-#ENV http_proxy http://10.0.4.2:3128
-#ENV https_proxy https://10.0.4.2:3128
-#ENV no_proxy localhost,127.0.0.1,.sock
+ENV http_proxy http://10.0.4.2:3128
+ENV https_proxy https://10.0.4.2:3128
+ENV no_proxy localhost,127.0.0.1,.sock
  
 #Proxy use for apt-get update
-#RUN  echo 'Acquire::http { Proxy "http://10.0.4.2:3128"; };' >> /etc/apt/apt.conf.d/01proxy
-#RUN  echo 'Acquire::https { Proxy "http://10.0.4.2:3128"; };' >> /etc/apt/apt.conf.d/01proxy
+RUN  echo 'Acquire::http { Proxy "http://10.0.4.2:3128"; };' >> /etc/apt/apt.conf.d/01proxy
+RUN  echo 'Acquire::https { Proxy "http://10.0.4.2:3128"; };' >> /etc/apt/apt.conf.d/01proxy
 
 RUN apt-get update -y && \
   apt-get upgrade -y
