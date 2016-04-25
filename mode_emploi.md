@@ -1,5 +1,15 @@
 # Mode d'emploi de l'application :
 
+## Haproxy
+ * installer haproxy sur les deux noeuds
+ * dans /etc/haproxy/haproxy.conf ajouter les adresses ip des machines noeuds
+ 
+## keepAlived
+ * installer keepAlived sur les deux noeuds
+ * dans /etc/keepAlived/keepalived.conf 
+   - mettre state à MASTER dans le noeud1 (Pi2) et à BACKUP dans le noeud2 (Pi3)
+   - mettre priorit à 100 dans le noeud1 (Pi2) et à 101 dans le noeud2 (Pi3)
+   - rentrer une ip virtuelle 
 ## Consul:
   * Installer Consul dans la machine linux
   * lancer avec la commande : 
